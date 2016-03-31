@@ -14,5 +14,12 @@
   Currently there are no installation instructions for this project.<br>
 <br>
 ##Contribution Guidelines:<br>
+  Currently there are no contribution guidelines<br>
+<br>
+##Bugs and to do list:<br>
+  1. Come up with an idea
+    * Figure out the requirements 
+##Contriutor list: <br>
+Me.
   
   
