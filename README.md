@@ -19,7 +19,8 @@
 ##Bugs and to do list:<br>
   1. Come up with an idea
     * Figure out the requirements<br>
-##Contriutor list: <br>
+
+##Contriutor list:<br>
 Me.
   
   
