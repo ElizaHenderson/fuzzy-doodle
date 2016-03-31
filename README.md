@@ -21,6 +21,11 @@
     * Figure out the requirements<br>
 
 ##Contriutor list:<br>
-Me.
+Me. <br>
+
+##Credits: <br>
+  None<br>
+
+##License:<br>
   
   
