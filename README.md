@@ -8,7 +8,8 @@
   Currently, this project is intended to be written in QT with QML, C++ and embedded Java.<br>
 <br>
 ##Screenshots/Mockups:<br>
-  At this time there are no screenshots or mockups of the project.<br>
+  Currently there are no screenshots, but the mockups are as follows:<br>
+  ![alt tag](blob:https%3A//drive.google.com/20f76493-2c05-4e45-b027-a905fa31f6b0)
 <br>
 ##Installation Instructions:<br>
   Currently there are no installation instructions for this project.<br>
@@ -17,11 +18,11 @@
   Currently there are no contribution guidelines<br>
 <br>
 ##Bugs and to do list:<br>
-  1. Come up with an idea
-    * Figure out the requirements<br>
+  1. Complete gui design
+  2. Design overall requirements
 
 ##Contriutor list:<br>
-Me. <br>
+* Eliza Henderson <br>
 
 ##Credits: <br>
   * Steve Jackson<br>
