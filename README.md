@@ -9,7 +9,7 @@
 <br>
 ##Screenshots/Mockups:<br>
   Currently there are no screenshots, but the mockups are as follows:<br>
-  ![alt tag](https//drive.google.com/20f76493-2c05-4e45-b027-a905fa31f6b0)
+  ![alt tag](https://41.media.tumblr.com/9c15f188da13103c93b9eb7464bb333e/tumblr_o54kw5Zi551qiwav0o1_540.png)
 <br>
 ##Installation Instructions:<br>
   Currently there are no installation instructions for this project.<br>
