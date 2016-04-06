@@ -19,7 +19,8 @@
 <br>
 ##Bugs and to do list:<br>
   1. Complete gui design
-  2. Design overall requirements
+  2. Design overall logic
+  3. Implement logic and gui
 
 ##Contriutor list:<br>
 * Eliza Henderson <br>
