@@ -7,10 +7,15 @@ Rectangle {
     property alias drag:mouseArea.drag
     height: 100
     width: 100
-    anchors.bottom: parent.bottom
+    //anchors.bottom: parent.bottom
+    border.color: "black"
+    border.width: 3
+    property Text name: null
     Text {
         id: name
         text: qsTr("Save File")
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
     }
     MouseArea{
         id:mouseArea
