@@ -21,7 +21,7 @@ Window {
             id: text
             color: "#8d8c34"
             styleColor: "#bbb234"
-            font.pointSize: 12
+            font.pixelSize: parent.width/10
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             text:{
@@ -42,7 +42,7 @@ Window {
             id: text2
             color: "#8d8c34"
             styleColor: "#bbb234"
-            font.pointSize: 12
+            font.pixelSize: parent.width/10
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             text: "Begin New Adventure"
@@ -74,7 +74,7 @@ Window {
         mouseArea.onClicked:{
             topWindow.color = saveFile1.color
             clicked = true
-            welcomeBack.text1 = "Welcome Back Cade"
+            welcomeBack.text = "Welcome Back user1"
         }
         Drag.onActiveChanged: {
             topWindow.itemBeingDragged = saveFile1
@@ -85,8 +85,8 @@ Window {
         Drag.active: mouseArea.drag.active
         maximumDragX: parent.width
         maximumDragY: parent.height
-        x:100
-        y:0
+        x:0
+        y:98
         Drag.hotSpot.x: 32
         Drag.hotSpot.y: 32
         property bool clicked:false
@@ -94,7 +94,7 @@ Window {
         mouseArea.onClicked:{
             topWindow.color = saveFile2.color
             clicked = true
-            welcomeBack.text1 = "Welcome Back Eliza"
+            welcomeBack.text = "Welcome Back user2"
         }
         Drag.onActiveChanged: {
             topWindow.itemBeingDragged = saveFile1
@@ -102,6 +102,7 @@ Window {
     }
     Rectangle{
         id: welcomeBack
+        property alias text: text1.text
         Text{
             id: text1
             font.pointSize: 24
@@ -109,10 +110,10 @@ Window {
             text: "null"
             anchors.horizontalCenter:parent.horizontalCenter
         }
-        color: parent.color
+        color: "transparent"
         anchors.horizontalCenter: parent.horizontalCenter
-        height: topWindow.height/5
-        width: topWindow.width/3
+        height: 24
+        width: 10
         visible: {
             if (saveFile1.clicked == false && saveFile2.clicked == false)
             {
@@ -122,6 +123,23 @@ Window {
             {
                 true
             }
+        }
+    }
+    Rectangle
+    {
+        id: programName
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: "transparent"
+        height: 30
+        width: parent.width
+        Text{
+            id: name
+            font.pointSize: 24
+            color: "yellow"
+            text: "Munchkins Door Counter"
+            anchors.verticalCenter:parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
         }
     }
 }
