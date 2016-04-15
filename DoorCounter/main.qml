@@ -35,6 +35,10 @@ Window {
         }
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
+        mouseArea.onClicked:
+        {
+            dialog.visible = true
+        }
     }
     BeginButton{
         id: beginButton2
@@ -59,7 +63,53 @@ Window {
         }
         anchors.top: beginButton.bottom
         anchors.left: beginButton.left
+        mouseArea.onClicked:
+        {
+            dialog.visible = true
+        }
     }
+    Rectangle
+    {
+        id: dialog
+        width: beginButton.width*2
+        height: beginButton.height*2
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        color: "red"
+        visible: false
+        radius: 10
+        z: 5
+        Text{
+            text: "You clicked the button"
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.pixelSize: parent.height/6
+        }
+        Rectangle{
+            id: confirm
+            width: parent.width/4
+            height: parent.height/4
+            color: white
+            radius: 10
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.left + 10
+            Text{
+                text: "Confirm"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.pixelSize: parent.height/3
+            }
+            MouseArea{
+                hoverEnabled: true
+                id:mouseArea
+                anchors.fill: parent
+                onEntered: { parent.color = "green" }
+                onExited: { parent.color = "white" }
+                onClicked: {dialog.visible = false }
+            }
+        }
+    }
+
     SaveFile{
         id: saveFile1
         Drag.active: mouseArea.drag.active
