@@ -1,6 +1,7 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
 
+
 Window {
     id:topWindow
     visible: true
@@ -89,10 +90,10 @@ Window {
             id: confirm
             width: parent.width/4
             height: parent.height/4
-            color: white
+            color: "white"
             radius: 10
             anchors.bottom: parent.bottom
-            anchors.horizontalCenter: parent.left + 10
+            anchors.horizontalCenter: parent.left
             Text{
                 text: "Confirm"
                 anchors.verticalCenter: parent.verticalCenter
@@ -124,7 +125,7 @@ Window {
         mouseArea.onClicked:{
             topWindow.color = saveFile1.color
             clicked = true
-            welcomeBack.text = "Welcome Back user1"
+            welcomeBack.text = "Welcome Back " + File1.getUser()
         }
         Drag.onActiveChanged: {
             topWindow.itemBeingDragged = saveFile1
@@ -144,7 +145,7 @@ Window {
         mouseArea.onClicked:{
             topWindow.color = saveFile2.color
             clicked = true
-            welcomeBack.text = "Welcome Back user2"
+            welcomeBack.text = "Welcome Back " + File2.getUser()
         }
         Drag.onActiveChanged: {
             topWindow.itemBeingDragged = saveFile1
