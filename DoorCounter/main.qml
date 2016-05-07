@@ -69,8 +69,7 @@ Window {
             dialog.visible = true
         }
     }
-    Rectangle
-    {
+    Rectangle{
         id: dialog
         width: beginButton.width*2
         height: beginButton.height*2
@@ -110,7 +109,6 @@ Window {
             }
         }
     }
-
     SaveFile{
         id: saveFile1
         Drag.active: mouseArea.drag.active
@@ -176,8 +174,7 @@ Window {
             }
         }
     }
-    Rectangle
-    {
+    Rectangle{
         id: programName
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter

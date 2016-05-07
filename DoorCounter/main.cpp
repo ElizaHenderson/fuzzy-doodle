@@ -5,10 +5,12 @@
 #include <fstream>
 #include "player.h"
 #include "savefiles.h"
+#include <string.h>
+using std::string;
 int main(int argc, char *argv[])
 {
     int num_lines;
-
+    string line;
     SaveFiles savefiles[50];
 
     ofstream file;
@@ -21,11 +23,17 @@ int main(int argc, char *argv[])
         file.close();
     }
     file.open("fileinfo.txt");
+    char * strtokchar;
+    char ra[18];
     if(file.is_open())
     {
         for(int i = 0; i < num_lines; ++i)
         {
-
+            //get a line
+            //tokenize the string
+            //generate a save file from the first 3 tokens
+            //generate players from 3n tokens
+            //add players to save file
         }
     }
     QGuiApplication app(argc, argv);

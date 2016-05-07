@@ -22,12 +22,11 @@ public slots:
     QString GetImg();
     void SetUser(QString user);
     QString getUser();
-
+    void SetPlayer(Player player);
 private:
 
     QString name;
     QString img_name;
-    QString user_name;
     int m_player_count;
     Player * players;
 };
