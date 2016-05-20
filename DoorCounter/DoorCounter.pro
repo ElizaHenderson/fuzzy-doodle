@@ -18,3 +18,6 @@ include(deployment.pri)
 HEADERS += \
     savefiles.h \
     player.h
+
+DISTFILES += \
+    files.txt

@@ -8,11 +8,11 @@ class Player : public QObject
     Q_OBJECT
 public:
     explicit Player(QObject *parent = 0);
-    Player(QString name, int doors = 0, int level = 0, int order = 0);
+    Player(QString name = "bob", int doors = 0, int level = 0, int order = 0);
     void LevelUp(int levels_gained);
     void KickDoor();
     int GetOrder(){return m_order;}
-    int GetLevel(){return m_level;}
+    int GetLevel(){return m_levels;}
     int GetDoor(){return m_doors;}
     QString GetName(){return m_name;}
 
@@ -22,7 +22,7 @@ public slots:
 
 private:
     int m_doors;
-    int m_level;
+    int m_levels;
     QString m_name;
     int m_order;
 };

@@ -123,7 +123,7 @@ Window {
         mouseArea.onClicked:{
             topWindow.color = saveFile1.color
             clicked = true
-            welcomeBack.text = "Welcome Back " + File1.getUser()
+            welcomeBack.text = "Welcome Back " + sFile[1].GetName()
         }
         Drag.onActiveChanged: {
             topWindow.itemBeingDragged = saveFile1
@@ -143,10 +143,10 @@ Window {
         mouseArea.onClicked:{
             topWindow.color = saveFile2.color
             clicked = true
-            welcomeBack.text = "Welcome Back " + File2.getUser()
+            welcomeBack.text = "Welcome Back " + sFile[2].GetName()
         }
         Drag.onActiveChanged: {
-            topWindow.itemBeingDragged = saveFile1
+            topWindow.itemBeingDragged = saveFile2
         }
     }
     Rectangle{
@@ -165,13 +165,9 @@ Window {
         width: 10
         visible: {
             if (saveFile1.clicked == false && saveFile2.clicked == false)
-            {
                 false
-            }
             else
-            {
                 true
-            }
         }
     }
     Rectangle{

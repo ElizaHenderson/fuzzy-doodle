@@ -13,7 +13,7 @@ class SaveFiles : public QObject
 public:
 
     SaveFiles();
-    SaveFiles(QString names, QString img_names, QString user_names);
+    SaveFiles(QString names, QString img_names);
     virtual ~SaveFiles();
 public slots:
     void SetName(QString new_name);
@@ -22,13 +22,15 @@ public slots:
     QString GetImg();
     void SetUser(QString user);
     QString getUser();
-    void SetPlayer(Player player);
+    void AddPlayer(Player * player);
+    void SetPlayerCount(int players);
+    int GetPlayerCount();
 private:
 
-    QString name;
+    QString user_name;
     QString img_name;
     int m_player_count;
-    Player * players;
+    Player * players[];
 };
 
 #endif // SAVEFILES_H
