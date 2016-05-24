@@ -16,12 +16,10 @@ public:
     SaveFiles(QString names, QString img_names);
     virtual ~SaveFiles();
 public slots:
-    void SetName(QString new_name);
-    QString GetName();
     void SetImg(QString img);
     QString GetImg();
     void SetUser(QString user);
-    QString getUser();
+    QString GetUser();
     void AddPlayer(Player * player);
     void SetPlayerCount(int players);
     int GetPlayerCount();

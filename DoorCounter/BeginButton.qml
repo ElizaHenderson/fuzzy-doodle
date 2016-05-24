@@ -2,9 +2,9 @@ import QtQuick 2.0
 
 Rectangle {
     property alias mouseArea: mouseArea
-    height: parent.height/5
-    color: "#5c2929"
-    width: parent.width/4
+    height: topWindow.height/3
+    color: "black"
+    width: topWindow.width/2
     border.width: 2
     border.color: "black"
     MouseArea{

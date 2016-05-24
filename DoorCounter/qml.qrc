@@ -3,5 +3,7 @@
         <file>main.qml</file>
         <file>SaveFile.qml</file>
         <file>BeginButton.qml</file>
+        <file>BeginScreen.qml</file>
+        <file>CreatePlayers.qml</file>
     </qresource>
 </RCC>

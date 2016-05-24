@@ -6,8 +6,8 @@ Window {
     id:topWindow
     visible: true
     property Item itemBeingDragged:null
-    width: 640
-    height: 480
+    width: 1000
+    height: 800
     title: qsTr("Door Counter")
     color: "brown"
     DropArea{
@@ -16,174 +16,74 @@ Window {
         height:width
         Drag.dragType: Drag.Automatic
     }
-    BeginButton {
-        id: beginButton
-        Text {
-            id: text
-            color: "#8d8c34"
-            styleColor: "#bbb234"
-            font.pixelSize: parent.width/10
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            text:{
-                if(saveFile1.clicked || saveFile2.clicked)
-                {
-                    text: "Continue Adventure"
+    CreatePlayers{
+        id:playerCreateScreen
+        visible:false
+        Keys.onPressed: {
+            if(visible === true)
+            {
+                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                if(currentcount !== playerCount){
+                    switch(currentcount){
+                    case 1:
+                        player1.setName(playerCreation.text)
+                        player1.setorder(currentcount)
+                        currentcount += 1
+                        break
+                    case 2:
+                        player2.setName(playerCreation.text)
+                        player2.setorder(currentcount)
+                        currentcount += 1
+                        break
+                    case 3:
+                        player3.setName(playerCreation.text)
+                        player3.setorder(currentcount)
+                        currentcount += 1
+                        break
+                    case 4:
+                        player4.setName(playerCreation.text)
+                        player4.setorder(currentcount)
+                        currentcount += 1
+                        break
+                    case 5:
+                        player5.setName(playerCreation.text)
+                        player5.setorder(currentcount)
+                        currentcount += 1
+                        break
+                    case 6:
+                        player6.setName(playerCreation.text)
+                        player6.setorder(currentcount)
+                        currentcount += 1
+                        break
+                    case 7:
+                        player7.setName(playerCreation.text)
+                        player7.setorder(currentcount)
+                        currentcount += 1
+                        break
+                    case 8:
+                        player8.setName(playerCreation.text)
+                        player8.setorder(currentcount)
+                        currentcount += 1
+                        break
+                    default:
+
+                    }
                 }
-                else
-                    text: "Begin Adventure"
+                else{
+                    playerCreation.visible = false
+                    currentcount = 0
+                }
             }
-        }
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        mouseArea.onClicked:
-        {
-            dialog.visible = true
-        }
-    }
-    BeginButton{
-        id: beginButton2
-        Text {
-            id: text2
-            color: "#8d8c34"
-            styleColor: "#bbb234"
-            font.pixelSize: parent.width/10
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            text: "Begin New Adventure"
-        }
-        visible: {
-            if (saveFile1.clicked == false && saveFile2.clicked == false)
-            {
-                false
-            }
-            else
-            {
-                true
-            }
-        }
-        anchors.top: beginButton.bottom
-        anchors.left: beginButton.left
-        mouseArea.onClicked:
-        {
-            dialog.visible = true
-        }
-    }
-    Rectangle{
-        id: dialog
-        width: beginButton.width*2
-        height: beginButton.height*2
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        color: "red"
-        visible: false
-        radius: 10
-        z: 5
-        Text{
-            text: "You clicked the button"
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-            font.pixelSize: parent.height/6
-        }
-        Rectangle{
-            id: confirm
-            width: parent.width/4
-            height: parent.height/4
-            color: "white"
-            radius: 10
-            anchors.bottom: parent.bottom
-            anchors.horizontalCenter: parent.left
-            Text{
-                text: "Confirm"
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
-                font.pixelSize: parent.height/3
-            }
-            MouseArea{
-                hoverEnabled: true
-                id:mouseArea
-                anchors.fill: parent
-                onEntered: { parent.color = "green" }
-                onExited: { parent.color = "white" }
-                onClicked: {dialog.visible = false }
             }
         }
     }
-    SaveFile{
-        id: saveFile1
-        Drag.active: mouseArea.drag.active
-        maximumDragX: parent.width
-        maximumDragY: parent.height
-        x:0
-        y:0
-        Drag.hotSpot.x: 32
-        Drag.hotSpot.y: 32
-        property bool clicked:false
-        color:"blue"
-        mouseArea.onClicked:{
-            topWindow.color = saveFile1.color
-            clicked = true
-            welcomeBack.text = "Welcome Back " + sFile[1].GetName()
-        }
-        Drag.onActiveChanged: {
-            topWindow.itemBeingDragged = saveFile1
+    BeginScreen
+    {
+        id: beginScreen
+        button.onPressed: {
+            beginScreen.visible = false
+            playerCreateScreen.visible = true
         }
     }
-    SaveFile{
-        id: saveFile2
-        Drag.active: mouseArea.drag.active
-        maximumDragX: parent.width
-        maximumDragY: parent.height
-        x:0
-        y:98
-        Drag.hotSpot.x: 32
-        Drag.hotSpot.y: 32
-        property bool clicked:false
-        color:"purple"
-        mouseArea.onClicked:{
-            topWindow.color = saveFile2.color
-            clicked = true
-            welcomeBack.text = "Welcome Back " + sFile[2].GetName()
-        }
-        Drag.onActiveChanged: {
-            topWindow.itemBeingDragged = saveFile2
-        }
-    }
-    Rectangle{
-        id: welcomeBack
-        property alias text: text1.text
-        Text{
-            id: text1
-            font.pointSize: 24
-            color: "yellow"
-            text: "null"
-            anchors.horizontalCenter:parent.horizontalCenter
-        }
-        color: "transparent"
-        anchors.horizontalCenter: parent.horizontalCenter
-        height: 24
-        width: 10
-        visible: {
-            if (saveFile1.clicked == false && saveFile2.clicked == false)
-                false
-            else
-                true
-        }
-    }
-    Rectangle{
-        id: programName
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        color: "transparent"
-        height: 30
-        width: parent.width
-        Text{
-            id: name
-            font.pointSize: 24
-            color: "yellow"
-            text: "Munchkins Door Counter"
-            anchors.verticalCenter:parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-    }
+
 }
