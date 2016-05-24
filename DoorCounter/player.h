@@ -9,6 +9,10 @@ class Player : public QObject
 public:
     explicit Player(QObject *parent = 0);
     Player(QString name, int doors, int level, int order);
+
+signals:
+
+public slots:
     void LevelUp(int levels_gained);
     void KickDoor();
     int GetOrder(){return m_order;}
@@ -16,10 +20,7 @@ public:
     int GetDoor(){return m_doors;}
     QString GetName(){return m_name;}
     void SetOrder(int order){m_order = order;}
-signals:
-
-public slots:
-
+    void setName(QString name){m_name = name;}
 private:
     int m_doors;
     int m_levels;

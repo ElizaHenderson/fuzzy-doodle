@@ -2,11 +2,11 @@ import QtQuick 2.0
 
 Rectangle {
     property alias mouseArea: mouseArea
-    height: topWindow.height/3
-    color: "black"
+    height: topWindow.height/4
+    color: "#5c2929"
     width: topWindow.width/2
     border.width: 2
-    border.color: "black"
+    border.color: "brown"
     MouseArea{
         hoverEnabled: true
         id:mouseArea

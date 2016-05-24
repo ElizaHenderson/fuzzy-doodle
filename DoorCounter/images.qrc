@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../media/l2p-munchkin2.jpg</file>
+        <file>../media/howtoplay.mp4</file>
+    </qresource>
+</RCC>

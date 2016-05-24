@@ -1,28 +1,59 @@
 import QtQuick 2.0
-
+import QtMultimedia 5.6
 Item
 {
+
     enabled:true
     visible:true
     anchors.top:parent.top
     anchors.verticalCenter: parent.verticalCenter
     anchors.horizontalCenter: parent.horizontalCenter
     property alias button: beginButton2.mouseArea
+    property alias howToPlay: howToPlay.mouseArea
+    //property alias video: howToPlayVid
+
     BeginButton {
-    id: beginButton2
-    Text {
-        id: text
-        color: "green"
-        styleColor: "white"
-        font.pixelSize: parent.width/8
+        id: beginButton2
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        text:{
-            text: "Begin Adventure"
+        Text {
+            id: text
+            color: "green"
+            styleColor: "white"
+            font.pixelSize: parent.width/8
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            text:{
+                text: "Begin Adventure"
+            }
         }
     }
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.verticalCenter: parent.verticalCenter
+    BeginButton {
+        id: howToPlay
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: beginButton2.bottom
+        Text {
+            id: moretext
+            color: "green"
+            styleColor: "white"
+            font.pixelSize: parent.width/8
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            text:{
+                text: "How To Play"
+            }
+        }
+
+    }
+
+    Image{
+        id: logo
+        source: "/../media/l2p-munchkin2.jpg"
+        anchors.top: topWindow.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        width:500
+        height: 300
+        fillMode: Image.PreserveAspectFit
     }
     Rectangle{
         id: programName
@@ -34,49 +65,10 @@ Item
         Text{
             id: name
             font.pointSize: 24
-            color: "yellow"
+            color: "black"
             text: "Munchkins Door Counter"
             anchors.verticalCenter:parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
-    /*//Rectangle{
-        //id: dialog
-        //width: beginButton.width
-        //height: beginButton.height
-        //anchors.horizontalCenter: parent.horizontalCenter
-        //anchors.verticalCenter: parent.verticalCenter
-        //color: "blue"
-        //visible: false
-        //radius: 10
-        //z: 500
-        //Text{
-            //text: "You clicked the button"
-            //anchors.verticalCenter: parent.verticalCenter
-            //anchors.horizontalCenter: parent.horizontalCenter
-            //font.pixelSize: parent.height/6
-        //}
-        //Rectangle{
-            //id: confirm
-            //width: parent.width/4
-            //height: parent.height/4
-            //color: "white"
-            //radius: 10
-            //anchors.bottom: parent.bottom
-            //anchors.left: parent.left
-            //Text{
-                //text: "Confirm"
-                //anchors.verticalCenter: parent.verticalCenter
-                //anchors.horizontalCenter: parent.horizontalCenter
-                //font.pixelSize: parent.height/3
-            //}
-            //MouseArea{
-                //hoverEnabled: true
-                //id:mouseArea
-                //anchors.fill: parent
-                //onEntered: { parent.color = "green" }
-                //onExited: { parent.color = "white" }
-                //onClicked: {dialog.visible = false }
-            //}
-        //}*/
 }

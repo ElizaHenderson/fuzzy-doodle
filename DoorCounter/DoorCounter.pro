@@ -6,7 +6,8 @@ CONFIG += c++11
 SOURCES += main.cpp \
     player.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    images.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -17,5 +18,4 @@ include(deployment.pri)
 HEADERS += \
     player.h
 
-DISTFILES += \
-    files.txt
+DISTFILES +=

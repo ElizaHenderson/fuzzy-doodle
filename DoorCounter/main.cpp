@@ -22,14 +22,14 @@ int main(int argc, char *argv[])
     Player player7;
     Player player8;
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("Player1", &player1);
-    engine.rootContext()->setContextProperty("Player2", &player2);
-    engine.rootContext()->setContextProperty("Player3", &player3);
-    engine.rootContext()->setContextProperty("Player4", &player4);
-    engine.rootContext()->setContextProperty("Player5", &player5);
-    engine.rootContext()->setContextProperty("Player6", &player6);
-    engine.rootContext()->setContextProperty("Player7", &player7);
-    engine.rootContext()->setContextProperty("Player8", &player8);
+    engine.rootContext()->setContextProperty("player1", &player1);
+    engine.rootContext()->setContextProperty("player2", &player2);
+    engine.rootContext()->setContextProperty("player3", &player3);
+    engine.rootContext()->setContextProperty("player4", &player4);
+    engine.rootContext()->setContextProperty("player5", &player5);
+    engine.rootContext()->setContextProperty("player6", &player6);
+    engine.rootContext()->setContextProperty("player7", &player7);
+    engine.rootContext()->setContextProperty("player8", &player8);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();

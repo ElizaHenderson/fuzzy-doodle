@@ -33,12 +33,77 @@ Item {
                  else
                      false
         }
+        focus: {
+            if(visible ===true)
+                true
+            else
+                false
+        }
         anchors.horizontalCenter: playerNameQ.horizontalCenter
         anchors.verticalCenter: playerNameQ.verticalCenter
         height: topWindow.height/8
         width: topWindow.width/2
-        color: "orange"
+        color: "black"
+        Keys.onPressed: {
+            if(visible === true)
+            {
+                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                    if(currentcount !== count){
+                        switch(currentcount){
+                        case 1:
+                            player1.setName(playerCreation.text)
+                            player1.SetOrder(currentcount)
+                            currentcount += 1
+                            break
+                        case 2:
+                            player2.setName(playerCreation.text)
+                            player2.SetOrder(currentcount)
+                            currentcount += 1
+                            break
+                        case 3:
+                            player3.setName(playerCreation.text)
+                            player3.SetOrder(currentcount)
+                            currentcount += 1
+                            break
+                        case 4:
+                            player4.setName(playerCreation.text)
+                            player4.SetOrder(currentcount)
+                            currentcount += 1
+                            break
+                        case 5:
+                            player5.setName(playerCreation.text)
+                            player5.SetOrder(currentcount)
+                            currentcount += 1
+                            break
+                        case 6:
+                            player6.setName(playerCreation.text)
+                            player6.SetOrder(currentcount)
+                            currentcount += 1
+                            break
+                        case 7:
+                            player7.setName(playerCreation.text)
+                            player7.SetOrder(currentcount)
+                            currentcount += 1
+                            break
+                        case 8:
+                            player8.setName(playerCreation.text)
+                            player8.SetOrder(currentcount)
+                            currentcount += 1
+                            break
+                        default:
 
+                        }
+                    }
+                    else{
+                        playerCreation.visible = false
+                        playerNameQ.visible = false
+                        playerCreation.enabled = false
+                        playerNameQ.enabled = false
+                        currentcount = 0
+                    }
+                }
+            }
+        }
     }
     Text{
         id: question
@@ -65,14 +130,21 @@ Item {
                  else
                      false
         }
-        text: "..."
+        text: ""
+        focus: {
+            if(question.visible ===true)
+                true
+            else
+                false
+        }
+
         font.pointSize: 24
         anchors.top: question.bottom
         anchors.horizontalCenter: question.horizontalCenter
         anchors.verticalCenter: question.verticalCenter
         height: topWindow.height/8
         width: topWindow.width/2
-        color: "orange"
+        color: "black"
         Keys.onPressed: {
             if(visible === true){
 
