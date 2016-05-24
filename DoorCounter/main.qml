@@ -27,67 +27,14 @@ Window {
             playerCreateScreen.visible = true
         }
         howToPlay.onClicked: {
-            howToPlay.visible = true
-            video.visible = true
-            dumbrect.visible = true
-            video.play()
+            howtoplay.visible = true
+            howtoplay.video.visible = true
+            howtoplay.video.play()
+            howtoplay.back.visible = true
         }
 
     }
-    Rectangle{
-        id: dumbrect
-        visible: false
-        height: topWindow.height
-        width: topWindow.width
-        anchors.horizontalCenter: beginScreen.horizontalCenter
-        anchors.verticalCenter: beginScreen.verticalCenter
-        Video{
-            id: video
-            source: "../media/howtoplay2.avi"
-            height: topWindow.height
-            width: topWindow.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            autoPlay: false
-            fillMode: VideoOutput.Stretch
-            visible: false
-        }
-        Rectangle{
-            id: back
-            visible: {
-                if(dumbrect.visible)
-                    true
-                else
-                    false
-            }
-            height: dumbrect.height/8
-            width:dumbrect.width/6
-            anchors.bottom: dumbrect.bottom
-            anchors.right: dumbrect.right
-            z:1
-            Text {
-                id: text
-                color: "green"
-                styleColor: "white"
-                font.pixelSize: parent.width/8
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-                text:{
-                    text: "Back"
-                }
-            }
-            MouseArea{
-                hoverEnabled: true
-                id:mouseArea
-                anchors.fill: parent
-                onEntered: { parent.color = "green" }
-                onExited: { parent.color = "#5c2929" }
-                onClicked: {
-                    video.stop()
-                    dumbrect.visible = false
-                }
-            }
-
-        }
+    VideoContainer{
+        id: howtoplay
     }
 }

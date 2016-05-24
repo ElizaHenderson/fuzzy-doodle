@@ -2,8 +2,6 @@ import QtQuick 2.0
 
 Rectangle {
     property alias mouseArea:mouseArea
-    property real  maximumDragX:100
-    property real  maximumDragY:100
     property alias drag:mouseArea.drag
     height: 100
     width: 100

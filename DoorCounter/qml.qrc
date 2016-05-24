@@ -5,5 +5,6 @@
         <file>BeginButton.qml</file>
         <file>BeginScreen.qml</file>
         <file>CreatePlayers.qml</file>
+        <file>VideoContainer.qml</file>
     </qresource>
 </RCC>
