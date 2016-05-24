@@ -49,19 +49,22 @@ Item
     Image{
         id: logo
         source: "/../media/l2p-munchkin2.jpg"
-        anchors.top: topWindow.top
+        anchors.top: parent.top
+        anchors.topMargin: 10
         anchors.horizontalCenter: parent.horizontalCenter
-        width:500
-        height: 300
+        width:topWindow.width/2
+        height: topWindow.height/7
         fillMode: Image.PreserveAspectFit
     }
     Rectangle{
+        height: 40
+        width: parent.width
         id: programName
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
         anchors.horizontalCenter: parent.horizontalCenter
         color: "transparent"
-        height: 30
-        width: parent.width
+
         Text{
             id: name
             font.pointSize: 24
