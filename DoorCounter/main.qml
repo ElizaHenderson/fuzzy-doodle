@@ -9,7 +9,7 @@ Window {
     height: 800
     title: qsTr("Door Counter")
     color: "#FFD09A"
-/*    CreatePlayers{
+    CreatePlayers{
         id:playerCreateScreen
         visible:false
         Keys.onPressed:{
@@ -19,39 +19,75 @@ Window {
                enabled: false
             }
         }
-    }*/
-/*    BeginScreen
-    {
+    }
+    BeginScreen{
         id: beginScreen
         button.onClicked: {
             beginScreen.visible = false
             playerCreateScreen.visible = true
         }
-        /*howToPlay.onClicked: {
+        howToPlay.onClicked: {
             howToPlay.visible = true
-            howToPlayVid.visible = true
-            howToPlayVid.play()
-            //howToPlayVid.focus = true
-        }*/
-
-    //}
-
-        Video
-        {
-            id: video
-            source: "../media/howtoplay.mp4"
-            height: parent.height
-            width: parent.width
-            anchors.horizontalCenter: topWindow.horizontalCenter
-            anchors.verticalCenter: topWindow.verticalCenter
-            autoPlay: true
-            fillMode: VideoOutput.Stretch
-            //seekable: true
-            focus: true
-            volume: 1
-            Keys.onSpacePressed: video.playbackState == MediaPlayer.PlayingState ? video.pause() : video.play()
-            Keys.onLeftPressed: video.seek(video.position - 5000)
-            Keys.onRightPressed: video.seek(video.position + 5000)
+            video.visible = true
+            dumbrect.visible = true
+            video.play()
         }
 
+    }
+    Rectangle{
+        id: dumbrect
+        visible: false
+        height: topWindow.height
+        width: topWindow.width
+        anchors.horizontalCenter: beginScreen.horizontalCenter
+        anchors.verticalCenter: beginScreen.verticalCenter
+        Video{
+            id: video
+            source: "../media/howtoplay2.avi"
+            height: topWindow.height
+            width: topWindow.width
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            autoPlay: false
+            fillMode: VideoOutput.Stretch
+            visible: false
+        }
+        Rectangle{
+            id: back
+            visible: {
+                if(dumbrect.visible)
+                    true
+                else
+                    false
+            }
+            height: dumbrect.height/8
+            width:dumbrect.width/6
+            anchors.bottom: dumbrect.bottom
+            anchors.right: dumbrect.right
+            z:1
+            Text {
+                id: text
+                color: "green"
+                styleColor: "white"
+                font.pixelSize: parent.width/8
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                text:{
+                    text: "Back"
+                }
+            }
+            MouseArea{
+                hoverEnabled: true
+                id:mouseArea
+                anchors.fill: parent
+                onEntered: { parent.color = "green" }
+                onExited: { parent.color = "#5c2929" }
+                onClicked: {
+                    video.stop()
+                    dumbrect.visible = false
+                }
+            }
+
+        }
+    }
 }
