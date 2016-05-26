@@ -17,6 +17,7 @@ Window {
             {
                visible: false
                enabled: false
+               playerarea.visible = true
             }
         }
     }
@@ -36,5 +37,8 @@ Window {
     }
     VideoContainer{
         id: howtoplay
+    }
+    PlayScreen{
+        id: playerarea
     }
 }

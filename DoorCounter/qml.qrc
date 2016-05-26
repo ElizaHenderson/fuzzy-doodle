@@ -6,5 +6,6 @@
         <file>BeginScreen.qml</file>
         <file>CreatePlayers.qml</file>
         <file>VideoContainer.qml</file>
+        <file>PlayScreen.qml</file>
     </qresource>
 </RCC>

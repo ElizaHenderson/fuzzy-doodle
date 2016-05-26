@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>../media/l2p-munchkin2.jpg</file>
         <file>../media/howtoplay2.avi</file>
+        <file>../media/closeddoor.png</file>
+        <file>../media/dooropen.png</file>
     </qresource>
 </RCC>
