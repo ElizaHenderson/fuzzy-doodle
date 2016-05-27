@@ -13,10 +13,14 @@ Window {
         id:playerCreateScreen
         visible:false
         Keys.onPressed:{
-            if(currentcount === count)
-            {
-               visible: false
-               enabled: false
+            if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                if(submit2.visible === false){
+                   playerarea.visible = true
+                }
+            }
+        }
+        submit2.onClicked:{
+            if(submit2.visible === false){
                playerarea.visible = true
             }
         }
@@ -40,5 +44,7 @@ Window {
     }
     PlayScreen{
         id: playerarea
+        visible: false
+        count: playerCreateScreen.count
     }
 }

@@ -3,13 +3,14 @@ import QtQuick 2.0
 Item {
     property int count
     property int currentcount
+    property alias submit2: submit2.mouseArea
     height: parent.height/2
     width: parent.width/2
     id: createPlayers
 
     Text{
         id: playerNameQ
-        text: "Enter Player"+currentcount+"'s name"
+        text: "Enter Player"+(currentcount)+"'s name"
         visible: false
         color: "White"
         font.pointSize: 24
@@ -70,7 +71,7 @@ Item {
             }
             mouseArea.onClicked: {
                 if(visible === true){
-                    if(currentcount !== count){
+                    if(currentcount < count){
                         switch(currentcount){
                         case 1:
                             player1.setName(playerCreation.text)
@@ -121,7 +122,7 @@ Item {
                         playerNameQ.visible = false
                         playerCreation.enabled = false
                         playerNameQ.enabled = false
-                        currentcount = 0
+                        currentcount = 1
                     }
                 }
             }
@@ -130,7 +131,7 @@ Item {
             if(visible === true)
             {
                 if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
-                    if(currentcount !== count){
+                    if(currentcount < count){
                         switch(currentcount){
                         case 1:
                             player1.setName(playerCreation.text)
@@ -181,12 +182,13 @@ Item {
                         playerNameQ.visible = false
                         playerCreation.enabled = false
                         playerNameQ.enabled = false
-                        currentcount = 0
+                        currentcount = 1
                     }
                 }
             }
         }
     }
+
     Text{
         id: question
         height: topWindow.height/6
@@ -224,7 +226,6 @@ Item {
         height: topWindow.height/6
         width: topWindow.width/2
         color: "black"
-
         BeginButton{
             id: submit1
             height: topWindow.height/8
@@ -258,13 +259,14 @@ Item {
                     }
                     else
                     {
-                            question.visible = false
-                            playerCount.visible = false
-                            playerCount.enabled = false
-                            playerCreation.visible = true
-                            playerCreation.enabled = true
-                            playerNameQ.visible = true
-                        }
+                        question.visible = false
+                        playerCount.visible = false
+                        playerCount.enabled = false
+                        playerCreation.visible = true
+                        playerCreation.enabled = true
+                        playerNameQ.visible = true
+                        currentcount = 1
+                    }
                 }
             }
         }
@@ -287,6 +289,7 @@ Item {
                         playerCreation.visible = true
                         playerCreation.enabled = true
                         playerNameQ.visible = true
+                        currentcount = 1
                     }
                 }
             }

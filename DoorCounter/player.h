@@ -22,9 +22,9 @@ public slots:
     void SetOrder(int order){m_order = order;}
     void setName(QString name){m_name = name;}
 private:
+    QString m_name;
     int m_doors;
     int m_levels;
-    QString m_name;
     int m_order;
 };
 
