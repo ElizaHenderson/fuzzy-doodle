@@ -15,3 +15,11 @@ void Player::KickDoor()
 {
     m_doors++;
 }
+
+int Player::GetOrder(){return m_order;}
+int Player::GetLevel(){return m_levels;}
+int Player::GetDoor(){return m_doors;}
+QString Player::getName(){return m_name;}
+
+void Player::SetOrder(int order){m_order = order;}
+void Player::setName(QString name){m_name = name;}

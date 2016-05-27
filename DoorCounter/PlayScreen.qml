@@ -2,48 +2,43 @@ import QtQuick 2.0
 
 Item {
     property alias door: kickDoor
-    property alias trouble: lookForTrouble
+    //property alias trouble: lookForTrouble
     property int currentcount: 1
     property int count: 0
     Text{
+        font.pointSize: topWindow.height/20
         color: "green"
         width: topWindow.width/4
         x: (topWindow.width/4)*2
-        text:
-        {
-            if(currentcount < count)
-            {
-                switch(currentcount)
-                {
+        text:player1.getName()
+            /*if(currentcount < count){
+                switch(currentcount){
                 case 1:
-                    player1.GetName() + "'s Turn"
+                    "It's "+ player1.getName() + "'s Turn"
                     break
                 case 2:
-                    player2.GetName()+ "'s Turn"
+                    "It's "+player2.getName()+ "'s Turn"
                     break
                 case 3:
-                    player3.GetName()+ "'s Turn"
+                    "It's "+player3.getName()+ "'s Turn"
                     break
                 case 4:
-                    player4.GetName()+ "'s Turn"
+                    "It's "+player4.getName()+ "'s Turn"
                     break
                 case 5:
-                    player5.GetName()+ "'s Turn"
+                    "It's "+player5.getName()+ "'s Turn"
                     break
                 case 6:
-                    player6.GetName()+ "'s Turn"
+                    "It's "+player6.getName()+ "'s Turn"
                     break
                 case 7:
-                    player7.GetName()+ "'s Turn"
+                    "It's "+player7.getName()+ "'s Turn"
                     break
                 case 8:
-                    player8.GetName()+ "'s Turn"
+                    "It's "+player8.getName()+ "'s Turn"
                     break
-                default:
-
                 }
-            }
-        }
+            }*/
     }
 
     Rectangle{
@@ -78,8 +73,9 @@ Item {
             onExited: { background.source = "../media/closeddoor.png"
                 thing.visible = false}
             onClicked:{
-                lookForTrouble.visible = true
+                //lookForTrouble.visible = true
                 levelsGained.visible = true
+                levelText.visible = true
             }
         }
     }
@@ -88,7 +84,7 @@ Item {
         visible: false
         height: topWindow.height
         width: topWindow.width/4
-        x: (topWindow.width/4)*4
+        x: (topWindow.width/4)*3
         color: "#5c2929"
         anchors.leftMargin: 10
         MouseArea{
@@ -99,19 +95,128 @@ Item {
             onExited: { parent.color = "#5c2929" }
         }
     }
+
     Rectangle{
         id: levelsGained
         height: topWindow.height/10
         width: topWindow.width/4
-        x: (topWindow.width/2)*2
+        x: (topWindow.width/4)*2
+        y: (topWindow.height/4)*2
         visible: false
         color: "#5c2929"
+        Text{
+            text: "Level Up!"
+            font.pointSize: 24
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
         MouseArea{
             hoverEnabled: true
             id:mouseArea3
             anchors.fill: levelsGained
             onEntered: { parent.color = "green" }
             onExited: { parent.color = "#5c2929" }
+            onClicked:{
+                if(currentCount < count){
+                    switch(currentCount){
+                    case 1:{
+                        player1.LevelUp(parseInt(levelText.text))
+
+                        break
+                    }
+                    case 2:{
+                        player2.LevelUp(parseInt(levelText.text))
+
+                        break
+                    }
+                    case 3:{
+                        player3.LevelUp(parseInt(levelText.text))
+
+                        break
+                    }
+                    case 4:{
+                        player4.LevelUp(parseInt(levelText.text))
+
+                        break
+                    }
+                    case 5:{
+                        player5.LevelUp(parseInt(levelText.text))
+
+                        break
+                    }
+                    case 6:{
+                        player6.LevelUp(parseInt(levelText.text))
+
+                        break
+                    }
+                    case 7:{
+                        player7.LevelUp(parseInt(levelText.text))
+
+                        break
+                    }
+                    case 8:{
+                        player8.LevelUp(parseInt(levelText.text))
+
+                        break
+                    }
+                    }
+                }
+            }
         }
     }
+    Rectangle{
+        id:endTurn
+        height: topWindow.height/10
+        width: topWindow.width/10
+        x: (topWindow.width/10)*5
+        y: (topWindow.height/10)*6
+        visible:{
+            if(levelText.visible == true)
+                true
+            else
+                false
+        }
+        MouseArea{
+            hoverEnabled: true
+            id:mouseArea4
+            anchors.fill: levelsGained
+            onEntered: { parent.color = "green" }
+            onExited: { parent.color = "#5c2929" }
+            onClicked:{
+               currentCount+=1
+               levelText.visible = false
+               levelsGained.visible = false
+               parent.visible = false
+                lookForTrouble.visible = false
+            }
+        }
+    }
+
+    TextInput{
+        id: levelText
+        visible:{
+            if(levelsGained.visible === true)
+                true
+            else
+                false
+        }
+        enabled:{ if(visible === true)
+                     true
+                 else
+                     false
+        }
+        text: "Levels Gained"
+        focus: {
+            if(levelsGained.visible ===true)
+                true
+            else
+                false
+        }
+        font.pointSize: 24
+        anchors.bottom: levelsGained.top
+        anchors.right: levelsGained.right
+        height: topWindow.height/10
+        width: topWindow.width/10
+        color: "black"
+ }
 }

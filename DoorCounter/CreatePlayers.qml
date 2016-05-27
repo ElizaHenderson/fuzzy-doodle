@@ -135,42 +135,41 @@ Item {
                         switch(currentcount){
                         case 1:
                             player1.setName(playerCreation.text)
-                            player1.SetOrder(currentcount)
                             currentcount += 1
                             break
                         case 2:
                             player2.setName(playerCreation.text)
-                            player2.SetOrder(currentcount)
+
                             currentcount += 1
                             break
                         case 3:
                             player3.setName(playerCreation.text)
-                            player3.SetOrder(currentcount)
+
                             currentcount += 1
                             break
                         case 4:
                             player4.setName(playerCreation.text)
-                            player4.SetOrder(currentcount)
+
                             currentcount += 1
                             break
                         case 5:
                             player5.setName(playerCreation.text)
-                            player5.SetOrder(currentcount)
+
                             currentcount += 1
                             break
                         case 6:
                             player6.setName(playerCreation.text)
-                            player6.SetOrder(currentcount)
+
                             currentcount += 1
                             break
                         case 7:
                             player7.setName(playerCreation.text)
-                            player7.SetOrder(currentcount)
+
                             currentcount += 1
                             break
                         case 8:
                             player8.setName(playerCreation.text)
-                            player8.SetOrder(currentcount)
+
                             currentcount += 1
                             break
                         default:

@@ -12,15 +12,20 @@ public:
 
 signals:
 
+public:
+
 public slots:
     void LevelUp(int levels_gained);
     void KickDoor();
-    int GetOrder(){return m_order;}
-    int GetLevel(){return m_levels;}
-    int GetDoor(){return m_doors;}
-    QString GetName(){return m_name;}
-    void SetOrder(int order){m_order = order;}
-    void setName(QString name){m_name = name;}
+
+    int GetOrder();
+    int GetLevel();
+    int GetDoor();
+    QString getName();
+
+    void SetOrder(int order);
+    void setName(QString name);
+
 private:
     QString m_name;
     int m_doors;
