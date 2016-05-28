@@ -4,13 +4,14 @@ Item {
     property int count
     property int currentcount
     property alias submit2: submit2.mouseArea
+    property alias playernameQ : playerNameQ.text
     height: parent.height/2
     width: parent.width/2
     id: createPlayers
 
     Text{
         id: playerNameQ
-        text: "Enter Player"+ currentcount +"'s name"
+        text: "Enter Player1's name"
         visible: false
         color: "White"
         font.pointSize: 24
@@ -77,6 +78,7 @@ Item {
                         if(currentcount === 1){
                             console.log("player1: "+ playerCreation.text);
                             player1.setName(playerCreation.text)
+                            playernameQ = "Enter Player2's name"
                         }
                         else if(currentcount === 2){
                             player2.setName(playerCreation.text)

@@ -9,6 +9,7 @@ Window {
     height: 800
     title: qsTr("Door Counter")
     color: "#FFD09A"
+
     CreatePlayers{
         id:playerCreateScreen
         visible:false
@@ -16,12 +17,14 @@ Window {
             if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
                 if(submit2.visible === false){
                    playerarea.visible = true
+                   playerarea.name = player1.getName()
                 }
             }
         }
         submit2.onClicked:{
             if(submit2.visible === false){
                playerarea.visible = true
+               playerarea.name = player1.getName()
             }
         }
     }
@@ -30,8 +33,6 @@ Window {
         button.onClicked: {
             beginScreen.visible = false;
             playerCreateScreen.visible = true;
-            playerarea.name = player1.getName();
-            console.log(player1.getName());
         }
         howToPlay.onClicked: {
             howtoplay.visible = true

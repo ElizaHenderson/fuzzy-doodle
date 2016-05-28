@@ -5,21 +5,22 @@ Item {
     //property alias trouble: lookForTrouble
     property int currentcount: 1
     property int count: 0
-    property string name: user_name_txt.text
+    property alias name: user_name_txt.text
     Text{
         id: user_name_txt
         font.pointSize: topWindow.height/20
         color: "green"
         width: topWindow.width/4
         x: (topWindow.width/4)*2
-        text: ""
+        visible:true
+        text: "butts"
             /*if(currentcount < count){
                 switch(currentcount){
                 case 1:
                     "It's "+ player1.getName() + "'s Turn"
                     break
                 case 2:
-                    "It's "+player2.getName()+ "'s Turn"
+                    "It's "+ player2.getName()+ "'s Turn"
                     break
                 case 3:
                     "It's "+player3.getName()+ "'s Turn"
