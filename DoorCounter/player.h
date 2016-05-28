@@ -6,31 +6,27 @@
 class Player : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString m_name READ getName WRITE setName)
+    Q_PROPERTY(int m_levels READ GetLevel)
+    Q_PROPERTY(int m_doors READ GetDoor)
+
 public:
     explicit Player(QObject *parent = 0);
-    Player(QString name, int doors, int level, int order);
+    Player(QString name, int doors, int level);
 
-signals:
-
-public:
 
 public slots:
     void LevelUp(int levels_gained);
     void KickDoor();
-
-    int GetOrder();
+    void setName(QString name);
     int GetLevel();
     int GetDoor();
     QString getName();
-
-    void SetOrder(int order);
-    void setName(QString name);
 
 private:
     QString m_name;
     int m_doors;
     int m_levels;
-    int m_order;
 };
 
 #endif // PLAYER_H

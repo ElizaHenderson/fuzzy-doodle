@@ -28,8 +28,10 @@ Window {
     BeginScreen{
         id: beginScreen
         button.onClicked: {
-            beginScreen.visible = false
-            playerCreateScreen.visible = true
+            beginScreen.visible = false;
+            playerCreateScreen.visible = true;
+            playerarea.name = player1.getName();
+            console.log(player1.getName());
         }
         howToPlay.onClicked: {
             howtoplay.visible = true
@@ -46,5 +48,6 @@ Window {
         id: playerarea
         visible: false
         count: playerCreateScreen.count
+        name: ""
     }
 }

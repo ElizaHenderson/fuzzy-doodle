@@ -5,12 +5,14 @@ Item {
     //property alias trouble: lookForTrouble
     property int currentcount: 1
     property int count: 0
+    property string name: user_name_txt.text
     Text{
+        id: user_name_txt
         font.pointSize: topWindow.height/20
         color: "green"
         width: topWindow.width/4
         x: (topWindow.width/4)*2
-        text:player1.getName()
+        text: ""
             /*if(currentcount < count){
                 switch(currentcount){
                 case 1:
@@ -95,7 +97,6 @@ Item {
             onExited: { parent.color = "#5c2929" }
         }
     }
-
     Rectangle{
         id: levelsGained
         height: topWindow.height/10
@@ -117,46 +118,38 @@ Item {
             onEntered: { parent.color = "green" }
             onExited: { parent.color = "#5c2929" }
             onClicked:{
-                if(currentCount < count){
-                    switch(currentCount){
+                if(currentcount < count){
+                    switch(currentcount){
                     case 1:{
                         player1.LevelUp(parseInt(levelText.text))
-
                         break
                     }
                     case 2:{
                         player2.LevelUp(parseInt(levelText.text))
-
                         break
                     }
                     case 3:{
                         player3.LevelUp(parseInt(levelText.text))
-
                         break
                     }
                     case 4:{
                         player4.LevelUp(parseInt(levelText.text))
-
                         break
                     }
                     case 5:{
                         player5.LevelUp(parseInt(levelText.text))
-
                         break
                     }
                     case 6:{
                         player6.LevelUp(parseInt(levelText.text))
-
                         break
                     }
                     case 7:{
                         player7.LevelUp(parseInt(levelText.text))
-
                         break
                     }
                     case 8:{
                         player8.LevelUp(parseInt(levelText.text))
-
                         break
                     }
                     }
@@ -176,10 +169,14 @@ Item {
             else
                 false
         }
+        Text{
+            font.pointSize: 24
+            text: "End Turn"
+        }
         MouseArea{
             hoverEnabled: true
             id:mouseArea4
-            anchors.fill: levelsGained
+            anchors.fill: parent.fill
             onEntered: { parent.color = "green" }
             onExited: { parent.color = "#5c2929" }
             onClicked:{
@@ -187,11 +184,10 @@ Item {
                levelText.visible = false
                levelsGained.visible = false
                parent.visible = false
-                lookForTrouble.visible = false
+               lookForTrouble.visible = false
             }
         }
     }
-
     TextInput{
         id: levelText
         visible:{

@@ -10,7 +10,7 @@ Item {
 
     Text{
         id: playerNameQ
-        text: "Enter Player"+(currentcount)+"'s name"
+        text: "Enter Player"+ currentcount +"'s name"
         visible: false
         color: "White"
         font.pointSize: 24
@@ -71,58 +71,42 @@ Item {
             }
             mouseArea.onClicked: {
                 if(visible === true){
-                    if(currentcount < count){
-                        switch(currentcount){
-                        case 1:
+                    if(currentcount <= count){
+                        console.log("count" + count);
+                        console.log("currentcount" + currentcount);
+                        if(currentcount === 1){
+                            console.log("player1: "+ playerCreation.text);
                             player1.setName(playerCreation.text)
-                            player1.SetOrder(currentcount)
-                            currentcount += 1
-                            break
-                        case 2:
-                            player2.setName(playerCreation.text)
-                            player2.SetOrder(currentcount)
-                            currentcount += 1
-                            break
-                        case 3:
-                            player3.setName(playerCreation.text)
-                            player3.SetOrder(currentcount)
-                            currentcount += 1
-                            break
-                        case 4:
-                            player4.setName(playerCreation.text)
-                            player4.SetOrder(currentcount)
-                            currentcount += 1
-                            break
-                        case 5:
-                            player5.setName(playerCreation.text)
-                            player5.SetOrder(currentcount)
-                            currentcount += 1
-                            break
-                        case 6:
-                            player6.setName(playerCreation.text)
-                            player6.SetOrder(currentcount)
-                            currentcount += 1
-                            break
-                        case 7:
-                            player7.setName(playerCreation.text)
-                            player7.SetOrder(currentcount)
-                            currentcount += 1
-                            break
-                        case 8:
-                            player8.setName(playerCreation.text)
-                            player8.SetOrder(currentcount)
-                            currentcount += 1
-                            break
-                        default:
-
                         }
+                        else if(currentcount === 2){
+                            player2.setName(playerCreation.text)
+                        }
+                        else if(currentcount === 3){
+                            player3.setName(playerCreation.text)
+                        }
+                        else if(currentcount === 4){
+                            player4.setName(playerCreation.text)
+                        }
+                        else if(currentcount === 5){
+                            player5.setName(playerCreation.text)
+                        }
+                        else if(currentcount === 6){
+                            player6.setName(playerCreation.text)
+                        }
+                        else if(currentcount === 7){
+                            player7.setName(playerCreation.text)
+                       }
+                        else if(currentcount === 8){
+                            player8.setName(playerCreation.text)
+                        }
+                        currentcount++
                     }
                     else{
                         playerCreation.visible = false
                         playerNameQ.visible = false
                         playerCreation.enabled = false
                         playerNameQ.enabled = false
-                        currentcount = 1
+                        //currentcount = 1
                     }
                 }
             }
@@ -131,57 +115,51 @@ Item {
             if(visible === true)
             {
                 if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
-                    if(currentcount < count){
-                        switch(currentcount){
-                        case 1:
-                            player1.setName(playerCreation.text)
-                            currentcount += 1
-                            break
-                        case 2:
-                            player2.setName(playerCreation.text)
-
-                            currentcount += 1
-                            break
-                        case 3:
-                            player3.setName(playerCreation.text)
-
-                            currentcount += 1
-                            break
-                        case 4:
-                            player4.setName(playerCreation.text)
-
-                            currentcount += 1
-                            break
-                        case 5:
-                            player5.setName(playerCreation.text)
-
-                            currentcount += 1
-                            break
-                        case 6:
-                            player6.setName(playerCreation.text)
-
-                            currentcount += 1
-                            break
-                        case 7:
-                            player7.setName(playerCreation.text)
-
-                            currentcount += 1
-                            break
-                        case 8:
-                            player8.setName(playerCreation.text)
-
-                            currentcount += 1
-                            break
-                        default:
-
+                    if(visible === true){
+                        if(currentcount <= count){
+                            console.log("count" + count);
+                            console.log("currentcount" + currentcount);
+                            if(currentcount === 1){
+                                console.log("player1: "+ playerCreation.text);
+                                player1.setName(playerCreation.text)
+                                currentcount += 1
+                            }
+                            else if(currentcount === 2){
+                                player2.setName(playerCreation.text)
+                                currentcount += 1
+                            }
+                            else if(currentcount === 3){
+                                player3.setName(playerCreation.text)
+                                currentcount += 1
+                            }
+                            else if(currentcount === 4){
+                                player4.setName(playerCreation.text)
+                                currentcount += 1
+                            }
+                            else if(currentcount === 5){
+                                player5.setName(playerCreation.text)
+                                currentcount += 1
+                            }
+                            else if(currentcount === 6){
+                                player6.setName(playerCreation.text)
+                                currentcount += 1
+                            }
+                            else if(currentcount === 7){
+                                player7.setName(playerCreation.text)
+                                currentcount += 1
+                           }
+                            else if(currentcount === 8){
+                                player8.setName(playerCreation.text)
+                                currentcount += 1
+                            }
                         }
-                    }
-                    else{
-                        playerCreation.visible = false
-                        playerNameQ.visible = false
-                        playerCreation.enabled = false
-                        playerNameQ.enabled = false
-                        currentcount = 1
+                        else{
+                            playerCreation.visible = false
+                            playerNameQ.visible = false
+                            playerCreation.enabled = false
+                            playerNameQ.enabled = false
+                            //currentcount = 1
+                        }
                     }
                 }
             }
@@ -264,7 +242,6 @@ Item {
                         playerCreation.visible = true
                         playerCreation.enabled = true
                         playerNameQ.visible = true
-                        currentcount = 1
                     }
                 }
             }
@@ -288,7 +265,6 @@ Item {
                         playerCreation.visible = true
                         playerCreation.enabled = true
                         playerNameQ.visible = true
-                        currentcount = 1
                     }
                 }
             }
