@@ -73,8 +73,6 @@ Item {
             }
             mouseArea.onClicked: {
                 if(playerCreation.visible === true){
-                    //console.log("count "+count)
-                    //console.log("current count "+currentcount)
                     if(currentcount < (count)){
                         if(currentcount === 0){
                             console.log("player1: "+ playerCreation.text);

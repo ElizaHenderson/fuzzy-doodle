@@ -65,9 +65,12 @@ Item {
         color: "#5c2929"
         anchors.leftMargin: 10
         Text{
+            width:parent.width
+            height: parent.height
             id: things
             text: "Look For Trouble"
-            font.pointSize: topWindow.height/10
+            wrapMode: "WordWrap"
+            font.pointSize: topWindow.height/15
             color: "green"
             visible:false
             z:5
@@ -80,7 +83,8 @@ Item {
             anchors.fill: lookForTrouble
             onEntered: { parent.color = "blue"
                         things.visible = true}
-            onExited: { parent.color = "#5c2929" }
+            onExited: { parent.color = "#5c2929"
+                        things.visible = false}
             onClicked:{
                 levelsGained.visible = true
                 levelText.visible = true
@@ -124,7 +128,7 @@ Item {
             onClicked:{
                 levelsgained = parseInt(levelText.text)
                 levelText.text = ""
-                if(currentcount <= count){
+                if(currentcount !== count){
                     switch(currentcount){
                     case 0:{
                         if(player1.GetLevel()+levelsgained < 10){
@@ -307,9 +311,6 @@ Item {
                     else if(currentcount === 7)
                         user_name_txt.text = "It's "+player8.getName() + "'s Turn. Current Level: "
                                 + player8.GetLevel() + " on door: " + player8.GetDoor()
-                }
-                if(currentcount <= count)
-                {
 
                     levelText.visible = false
                     levelsGained.visible = false
