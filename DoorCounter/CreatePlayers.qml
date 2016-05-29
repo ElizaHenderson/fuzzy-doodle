@@ -1,17 +1,18 @@
 import QtQuick 2.0
 
 Item {
-    property int count
-    property int currentcount
+    property int count : 0
+    property int currentcount : 0
     property alias submit2: submit2.mouseArea
     property alias playernameQ : playerNameQ.text
+    property alias playerCount : playerCount
     height: parent.height/2
     width: parent.width/2
     id: createPlayers
 
     Text{
         id: playerNameQ
-        text: "Enter Player1's name"
+        text: "Enter Player1's Name"
         visible: false
         color: "White"
         font.pointSize: 24
@@ -31,9 +32,9 @@ Item {
                 false
         }
         enabled:{ if(visible === true)
-                     true
-                 else
-                     false
+                true
+            else
+                false
         }
         focus: {
             if(visible ===true)
@@ -71,96 +72,136 @@ Item {
                 }
             }
             mouseArea.onClicked: {
-                if(visible === true){
-                    if(currentcount <= count){
-                        console.log("count" + count);
-                        console.log("currentcount" + currentcount);
-                        if(currentcount === 1){
+                if(playerCreation.visible === true){
+                    //console.log("count "+count)
+                    //console.log("current count "+currentcount)
+                    if(currentcount < (count)){
+                        if(currentcount === 0){
                             console.log("player1: "+ playerCreation.text);
                             player1.setName(playerCreation.text)
-                            playernameQ = "Enter Player2's name"
+                            player1.setDoor(0)
+                            player1.setLevel(1)
+                        }
+                        else if(currentcount === 1){
+                            player2.setName(playerCreation.text)
+                            player2.setDoor(0)
+                            player2.setLevel(1)
                         }
                         else if(currentcount === 2){
-                            player2.setName(playerCreation.text)
+                            player3.setName(playerCreation.text)
+                            player3.setDoor(0)
+                            player3.setLevel(1)
                         }
                         else if(currentcount === 3){
-                            player3.setName(playerCreation.text)
+                            player4.setName(playerCreation.text)
+                            player4.setDoor(0)
+                            player4.setLevel(1)
                         }
                         else if(currentcount === 4){
-                            player4.setName(playerCreation.text)
+                            player5.setName(playerCreation.text)
+                            player5.setDoor(0)
+                            player5.setLevel(1)
                         }
                         else if(currentcount === 5){
-                            player5.setName(playerCreation.text)
+                            player6.setName(playerCreation.text)
+                            player6.setDoor(0)
+                            player6.setLevel(1)
                         }
                         else if(currentcount === 6){
-                            player6.setName(playerCreation.text)
+                            player7.setName(playerCreation.text)
+                            player7.setDoor(0)
+                            player7.setLevel(1)
                         }
                         else if(currentcount === 7){
-                            player7.setName(playerCreation.text)
-                       }
-                        else if(currentcount === 8){
                             player8.setName(playerCreation.text)
+                            player8.setDoor(0)
+                            player8.setLevel(1)
                         }
-                        currentcount++
+
                     }
                     else{
                         playerCreation.visible = false
                         playerNameQ.visible = false
                         playerCreation.enabled = false
                         playerNameQ.enabled = false
-                        //currentcount = 1
+                    }
+                    currentcount++
+                    if(currentcount !== count)
+                        playerNameQ.text = "Enter Player" + (currentcount+1) +"'s Name"
+                    else
+                    {
+                        playerCreation.visible = false
+                        playerNameQ.visible = false
+                        playerCreation.enabled = false
+                        playerNameQ.enabled = false
                     }
                 }
             }
         }
         Keys.onPressed: {
-            if(visible === true)
+            if(playerCreation.visible === true)
             {
-                if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
-                    if(visible === true){
-                        if(currentcount <= count){
-                            console.log("count" + count);
-                            console.log("currentcount" + currentcount);
-                            if(currentcount === 1){
+                if(currentcount <= count){
+                    if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return){
+                        if(currentcount < (count)){
+                            if(currentcount === 0){
                                 console.log("player1: "+ playerCreation.text);
                                 player1.setName(playerCreation.text)
-                                currentcount += 1
+                                player1.setDoor(0)
+                                player1.setLevel(1)
+                            }
+                            else if(currentcount === 1){
+                                player2.setName(playerCreation.text)
+                                player2.setDoor(0)
+                                player2.setLevel(1)
                             }
                             else if(currentcount === 2){
-                                player2.setName(playerCreation.text)
-                                currentcount += 1
+                                player3.setName(playerCreation.text)
+                                player3.setDoor(0)
+                                player3.setLevel(1)
                             }
                             else if(currentcount === 3){
-                                player3.setName(playerCreation.text)
-                                currentcount += 1
+                                player4.setName(playerCreation.text)
+                                player4.setDoor(0)
+                                player4.setLevel(1)
                             }
                             else if(currentcount === 4){
-                                player4.setName(playerCreation.text)
-                                currentcount += 1
+                                player5.setName(playerCreation.text)
+                                player5.setDoor(0)
+                                player5.setLevel(1)
                             }
                             else if(currentcount === 5){
-                                player5.setName(playerCreation.text)
-                                currentcount += 1
+                                player6.setName(playerCreation.text)
+                                player6.setDoor(0)
+                                player6.setLevel(1)
                             }
                             else if(currentcount === 6){
-                                player6.setName(playerCreation.text)
-                                currentcount += 1
+                                player7.setName(playerCreation.text)
+                                player7.setDoor(0)
+                                player7.setLevel(1)
                             }
                             else if(currentcount === 7){
-                                player7.setName(playerCreation.text)
-                                currentcount += 1
-                           }
-                            else if(currentcount === 8){
                                 player8.setName(playerCreation.text)
-                                currentcount += 1
+                                player8.setDoor(0)
+                                player8.setLevel(1)
                             }
+
                         }
                         else{
                             playerCreation.visible = false
                             playerNameQ.visible = false
                             playerCreation.enabled = false
                             playerNameQ.enabled = false
-                            //currentcount = 1
+                        }
+                        currentcount++
+                        if(currentcount !== count)
+                            playerNameQ.text = "Enter Player" + (currentcount+1) +"'s Name"
+                        else
+                        {
+                            playerCreation.visible = false
+                            playerNameQ.visible = false
+                            playerCreation.enabled = false
+                            playerNameQ.enabled = false
                         }
                     }
                 }
@@ -187,9 +228,9 @@ Item {
                 false
         }
         enabled:{ if(visible === true)
-                     true
-                 else
-                     false
+                true
+            else
+                false
         }
         text: ""
         focus: {
@@ -206,7 +247,7 @@ Item {
         width: topWindow.width/2
         color: "black"
         BeginButton{
-            id: submit1
+            id: submitPlayerCount
             height: topWindow.height/8
             width: topWindow.width/4
             visible:{
@@ -231,7 +272,7 @@ Item {
             mouseArea.onClicked: {
                 if(visible === true){
                     count = parseInt(playerCount.text)
-                    currentcount = 1
+                    currentcount = 0
                     if(count < 3 || count > 8)
                     {
                         question.text = "Invalid, please enter a number of players between 3 and 8"
@@ -249,12 +290,12 @@ Item {
             }
         }
         Keys.onPressed: {
-            if(visible === true){
+            if(playerCount.visible === true){
 
                 if(event.key === Qt.Key_Enter || event.key === Qt.Key_Return)
                 {
                     count = parseInt(playerCount.text)
-                    currentcount = 1
+                    currentcount = 0
                     if(count < 3 || count > 8)
                     {
                         question.text = "Invalid, please enter a number of players between 3 and 8"

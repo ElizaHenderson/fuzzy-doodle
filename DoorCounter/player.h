@@ -22,6 +22,8 @@ public slots:
     int GetLevel();
     int GetDoor();
     QString getName();
+    void setDoor(int door);
+    void setLevel(int level);
 
 private:
     QString m_name;

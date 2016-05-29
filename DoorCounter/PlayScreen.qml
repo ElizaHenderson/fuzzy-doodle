@@ -2,48 +2,21 @@ import QtQuick 2.0
 
 Item {
     property alias door: kickDoor
-    //property alias trouble: lookForTrouble
-    property int currentcount: 1
-    property int count: 0
     property alias name: user_name_txt.text
+    property int currentcount: 0
+    property int levelsgained: 0
+    property int count: 0
+
     Text{
         id: user_name_txt
         font.pointSize: topWindow.height/20
         color: "green"
-        width: topWindow.width/4
-        x: (topWindow.width/4)*2
+        width: topWindow.width/6
+        x: (topWindow.width/4)*1
         visible:true
-        text: "butts"
-            /*if(currentcount < count){
-                switch(currentcount){
-                case 1:
-                    "It's "+ player1.getName() + "'s Turn"
-                    break
-                case 2:
-                    "It's "+ player2.getName()+ "'s Turn"
-                    break
-                case 3:
-                    "It's "+player3.getName()+ "'s Turn"
-                    break
-                case 4:
-                    "It's "+player4.getName()+ "'s Turn"
-                    break
-                case 5:
-                    "It's "+player5.getName()+ "'s Turn"
-                    break
-                case 6:
-                    "It's "+player6.getName()+ "'s Turn"
-                    break
-                case 7:
-                    "It's "+player7.getName()+ "'s Turn"
-                    break
-                case 8:
-                    "It's "+player8.getName()+ "'s Turn"
-                    break
-                }
-            }*/
+        text:"test"
+        wrapMode: "WordWrap"
     }
-
     Rectangle{
         id: kickDoor
         visible: true
@@ -79,6 +52,7 @@ Item {
                 //lookForTrouble.visible = true
                 levelsGained.visible = true
                 levelText.visible = true
+                kickDoor.visible = false
             }
         }
     }
@@ -119,38 +93,72 @@ Item {
             onEntered: { parent.color = "green" }
             onExited: { parent.color = "#5c2929" }
             onClicked:{
-                if(currentcount < count){
+                levelsgained = parseInt(levelText.text)
+                levelText.text = ""
+                if(currentcount <= count){
                     switch(currentcount){
+                    case 0:{
+                        player1.LevelUp(levelsgained)
+                        player1.KickDoor()
+                        levelsGained.visible = false
+                        lookForTrouble.visible = true
+                        endTurn.visible = true
+                        break
+                    }
                     case 1:{
-                        player1.LevelUp(parseInt(levelText.text))
+                        player2.LevelUp(levelsgained)
+                        player2.KickDoor()
+                        levelsGained.visible = false
+                        lookForTrouble.visible = true
+                        endTurn.visible = true
                         break
                     }
                     case 2:{
-                        player2.LevelUp(parseInt(levelText.text))
+                        player3.LevelUp(levelsgained)
+                        player3.KickDoor()
+                        levelsGained.visible = false
+                        lookForTrouble.visible = true
+                        endTurn.visible = true
                         break
                     }
                     case 3:{
-                        player3.LevelUp(parseInt(levelText.text))
+                        player4.LevelUp(levelsgained)
+                        player4.KickDoor()
+                        levelsGained.visible = false
+                        lookForTrouble.visible = true
+                        endTurn.visible = true
                         break
                     }
                     case 4:{
-                        player4.LevelUp(parseInt(levelText.text))
+                        player5.LevelUp(levelsgained)
+                        player5.KickDoor()
+                        levelsGained.visible = false
+                        lookForTrouble.visible = true
+                        endTurn.visible = true
                         break
                     }
                     case 5:{
-                        player5.LevelUp(parseInt(levelText.text))
+                        player6.LevelUp(levelsgained)
+                        player6.KickDoor()
+                        levelsGained.visible = false
+                        lookForTrouble.visible = true
+                        endTurn.visible = true
                         break
                     }
                     case 6:{
-                        player6.LevelUp(parseInt(levelText.text))
+                        player7.LevelUp(levelsgained)
+                        player7.KickDoor()
+                        levelsGained.visible = false
+                        lookForTrouble.visible = true
+                        endTurn.visible = true
                         break
                     }
                     case 7:{
-                        player7.LevelUp(parseInt(levelText.text))
-                        break
-                    }
-                    case 8:{
-                        player8.LevelUp(parseInt(levelText.text))
+                        player8.KickDoor()
+                        player8.LevelUp(levelsgained)
+                        levelsGained.visible = false
+                        lookForTrouble.visible = true
+                        endTurn.visible = true
                         break
                     }
                     }
@@ -165,27 +173,63 @@ Item {
         x: (topWindow.width/10)*5
         y: (topWindow.height/10)*6
         visible:{
-            if(levelText.visible == true)
+            if(lookForTrouble.visible == true)
                 true
             else
                 false
         }
         Text{
-            font.pointSize: 24
+            font.pointSize: 20
             text: "End Turn"
         }
         MouseArea{
             hoverEnabled: true
             id:mouseArea4
-            anchors.fill: parent.fill
+            anchors.fill: parent
             onEntered: { parent.color = "green" }
             onExited: { parent.color = "#5c2929" }
             onClicked:{
-               currentCount+=1
-               levelText.visible = false
-               levelsGained.visible = false
-               parent.visible = false
-               lookForTrouble.visible = false
+                if(currentcount !== count)
+                    currentcount++
+                else
+                    currentcount = 0
+
+                if(currentcount !== count)
+                {
+                    if(currentcount === 0)
+                        user_name_txt.text = "It's "+player1.getName() + "'s Turn. Current Level: "
+                                + player1.GetLevel() + " on door: " + player1.GetDoor()
+                    else if(currentcount === 1)
+                        user_name_txt.text = "It's "+player2.getName() + "'s Turn. Current Level: "
+                                + player2.GetLevel() + " on door: " + player2.GetDoor()
+                    else if(currentcount === 2)
+                        user_name_txt.text = "It's "+player3.getName() + "'s Turn. Current Level: "
+                                + player3.GetLevel() + " on door: " + player3.GetDoor()
+                    else if(currentcount === 3)
+                        user_name_txt.text = "It's "+player4.getName() + "'s Turn. Current Level: "
+                                + player4.GetLevel() + " on door: " + player4.GetDoor()
+                    else if(currentcount === 4)
+                        user_name_txt.text = "It's "+player5.getName() + "'s Turn. Current Level: "
+                                + player5.GetLevel() + " on door: " + player5.GetDoor()
+                    else if(currentcount === 5)
+                        user_name_txt.text = "It's "+player6.getName() + "'s Turn. Current Level: "
+                                + player6.GetLevel() + " on door: " + player6.GetDoor()
+                    else if(currentcount === 6)
+                        user_name_txt.text = "It's "+player7.getName() + "'s Turn. Current Level: "
+                                + player7.GetLevel() + " on door: " + player7.GetDoor()
+                    else if(currentcount === 7)
+                        user_name_txt.text = "It's "+player8.getName() + "'s Turn. Current Level: "
+                                + player8.GetLevel() + " on door: " + player8.GetDoor()
+                }
+                if(currentcount <= count)
+                {
+
+                    levelText.visible = false
+                    levelsGained.visible = false
+                    endTurn.visible = false
+                    lookForTrouble.visible = false
+                    kickDoor.visible = true
+                }
             }
         }
     }
@@ -198,11 +242,11 @@ Item {
                 false
         }
         enabled:{ if(visible === true)
-                     true
-                 else
-                     false
+                true
+            else
+                false
         }
-        text: "Levels Gained"
+        text: ""
         focus: {
             if(levelsGained.visible ===true)
                 true
@@ -215,5 +259,5 @@ Item {
         height: topWindow.height/10
         width: topWindow.width/10
         color: "black"
- }
+    }
 }

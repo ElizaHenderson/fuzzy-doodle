@@ -22,6 +22,11 @@ int main(int argc, char *argv[])
     Player player7;
     Player player8;
     QQmlApplicationEngine engine;
+
+    QCoreApplication::setApplicationName("DoorCounter");
+    QCoreApplication::setOrganizationName("HazardousLiquids");
+    QCoreApplication::setOrganizationDomain(".com");
+
     engine.rootContext()->setContextProperty("player1", &player1);
     engine.rootContext()->setContextProperty("player2", &player2);
     engine.rootContext()->setContextProperty("player3", &player3);

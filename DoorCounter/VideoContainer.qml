@@ -3,6 +3,8 @@ import QtMultimedia 5.6
 Item {
     property alias video: video
     property alias back: back
+    property alias muted: video.muted
+
     id: vidcontain
     Video {
         id: video

@@ -19,7 +19,14 @@ void Player::KickDoor()
 int Player::GetLevel(){return m_levels;}
 int Player::GetDoor(){return m_doors;}
 QString Player::getName(){return m_name;}
+void Player::setDoor(int door){
+    m_doors = door;
+}
+
+void Player::setLevel(int level){
+    m_levels = level;
+}
 
 void Player::setName(QString name){
-        m_name = name;
+    m_name = name;
 }

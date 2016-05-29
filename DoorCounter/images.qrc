@@ -4,5 +4,6 @@
         <file>../media/howtoplay2.avi</file>
         <file>../media/closeddoor.png</file>
         <file>../media/dooropen.png</file>
+        <file>../media/Gear_icon.svg.png</file>
     </qresource>
 </RCC>
