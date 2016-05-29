@@ -10,6 +10,7 @@ Window {
     height: 800
     title: qsTr("Door Counter")
     color: "#ffd09a"
+
     Settings{
         id: settings_global
         property alias colorV: topWindow.color
@@ -153,7 +154,6 @@ Window {
             }
         }
     }
-
     CreatePlayers{
         id:playerCreateScreen
         visible:false

@@ -64,14 +64,43 @@ Item {
         x: (topWindow.width/4)*3
         color: "#5c2929"
         anchors.leftMargin: 10
+        Text{
+            id: things
+            text: "Look For Trouble"
+            font.pointSize: topWindow.height/10
+            color: "green"
+            visible:false
+            z:5
+            anchors.bottom: parent.bottom
+            anchors.verticalCenter: topWindow.verticalCenter
+        }
         MouseArea{
             hoverEnabled: true
             id:mouseArea2
             anchors.fill: lookForTrouble
-            onEntered: { parent.color = "blue" }
+            onEntered: { parent.color = "blue"
+                        things.visible = true}
             onExited: { parent.color = "#5c2929" }
+            onClicked:{
+                levelsGained.visible = true
+                levelText.visible = true
+            }
         }
     }
+    Rectangle{
+        id: winscreen
+        visible: false
+        height: topWindow.height
+        width: topWindow.width
+        z:100
+        Text{
+            id: text
+            text: "nope"
+            font.pointSize: 25
+            color: "black"
+        }
+    }
+
     Rectangle{
         id: levelsGained
         height: topWindow.height/10
@@ -98,67 +127,125 @@ Item {
                 if(currentcount <= count){
                     switch(currentcount){
                     case 0:{
-                        player1.LevelUp(levelsgained)
-                        player1.KickDoor()
-                        levelsGained.visible = false
-                        lookForTrouble.visible = true
-                        endTurn.visible = true
+                        if(player1.GetLevel()+levelsgained < 10){
+                            player1.LevelUp(levelsgained)
+                            player1.KickDoor()
+                            levelsGained.visible = false
+                            lookForTrouble.visible = true
+                            endTurn.visible = true
+
+                        }
+                        else{
+                            text.text = player1.getName() + " Wins!"
+                            winscreen.visible = true
+                        }
                         break
                     }
                     case 1:{
-                        player2.LevelUp(levelsgained)
-                        player2.KickDoor()
-                        levelsGained.visible = false
-                        lookForTrouble.visible = true
-                        endTurn.visible = true
+                        if(player2.GetLevel() + levelsgained < 10){
+                            player2.LevelUp(levelsgained)
+                            player2.KickDoor()
+                            levelsGained.visible = false
+                            lookForTrouble.visible = true
+                            endTurn.visible = true
+
+                        }
+                        else{
+                            text.text = player2.getName() + " Wins!"
+                            winscreen.visible = false
+                        }
+
                         break
                     }
                     case 2:{
-                        player3.LevelUp(levelsgained)
-                        player3.KickDoor()
-                        levelsGained.visible = false
-                        lookForTrouble.visible = true
-                        endTurn.visible = true
+                        if(player3.GetLevel() + levelsgained < 10){
+                            player3.LevelUp(levelsgained)
+                            player3.KickDoor()
+                            levelsGained.visible = false
+                            lookForTrouble.visible = true
+                            endTurn.visible = true
+
+                        }
+                        else{
+                            text.text = player3.getName() + " Wins!"
+                            winscreen.visible = false
+                        }
                         break
                     }
                     case 3:{
-                        player4.LevelUp(levelsgained)
-                        player4.KickDoor()
-                        levelsGained.visible = false
-                        lookForTrouble.visible = true
-                        endTurn.visible = true
+                        if(player4.GetLevel() + levelsgained < 10){
+                            player4.LevelUp(levelsgained)
+                            player4.KickDoor()
+                            levelsGained.visible = false
+                            lookForTrouble.visible = true
+                            endTurn.visible = true
+
+                        }
+                        else{
+                            text.text = player4.getName() + " Wins!"
+                            winscreen.visible = true
+                        }
+
                         break
                     }
                     case 4:{
-                        player5.LevelUp(levelsgained)
-                        player5.KickDoor()
-                        levelsGained.visible = false
-                        lookForTrouble.visible = true
-                        endTurn.visible = true
+                        if(player5.GetLevel() + levelsgained < 10){
+                            player5.LevelUp(levelsgained)
+                            player5.KickDoor()
+                            levelsGained.visible = false
+                            lookForTrouble.visible = true
+                            endTurn.visible = true
+
+                        }
+                        else{
+                            text.text = player5.getName() + " Wins!"
+                            winscreen.visible = false
+                        }
                         break
                     }
                     case 5:{
-                        player6.LevelUp(levelsgained)
-                        player6.KickDoor()
-                        levelsGained.visible = false
-                        lookForTrouble.visible = true
-                        endTurn.visible = true
+                        if(player3.GetLevel() + levelsgained < 10){
+                            player6.LevelUp(levelsgained)
+                            player6.KickDoor()
+                            levelsGained.visible = false
+                            lookForTrouble.visible = true
+                            endTurn.visible = true
+
+                        }
+                        else{
+                            text.text = player6.getName() + " Wins!"
+                            winscreen.visible = false
+                        }
                         break
                     }
                     case 6:{
-                        player7.LevelUp(levelsgained)
-                        player7.KickDoor()
-                        levelsGained.visible = false
-                        lookForTrouble.visible = true
-                        endTurn.visible = true
+                        if(player3.GetLevel() + levelsgained < 10){
+                            player7.LevelUp(levelsgained)
+                            player7.KickDoor()
+                            levelsGained.visible = false
+                            lookForTrouble.visible = true
+                            endTurn.visible = true
+
+                        }
+                        else{
+                            text.text = player7.getName() + " Wins!"
+                            winscreen.visible = false
+                        }
                         break
                     }
                     case 7:{
-                        player8.KickDoor()
-                        player8.LevelUp(levelsgained)
-                        levelsGained.visible = false
-                        lookForTrouble.visible = true
-                        endTurn.visible = true
+                        if(player3.GetLevel() + levelsgained < 10){
+                            player8.KickDoor()
+                            player8.LevelUp(levelsgained)
+                            levelsGained.visible = false
+                            lookForTrouble.visible = true
+                            endTurn.visible = true
+
+                        }
+                        else{
+                            text.text = player8.getName() + " Wins!"
+                            winscreen.visible = false
+                        }
                         break
                     }
                     }
