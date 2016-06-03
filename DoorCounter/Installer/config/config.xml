@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+	<Name>Door Counter</Name>
+	<Version>1.0.0</Version>
+	<Title>Door Counter Installer</Title>
+	<Publisher>Henderson Dev</Publisher>
+	<StartMenuDir>Door Counter</StartMenuDir>
+	<TargetDir>@HomeDir@/InstallerDirectory</TargetDir>
+</Installer>
